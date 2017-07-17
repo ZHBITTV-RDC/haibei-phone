@@ -24,9 +24,15 @@
      <!-- 轮播效果各部门介绍 -->
      <div class="swiper-container">
       <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="img/1.jpg"></div>
-          <div class="swiper-slide"><img src="img/2.jpg"></div>
-          <div class="swiper-slide"><img src="img/img2.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">宣传部</p><img src="img/xuanc.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">摄影部</p><img src="img/shiy.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">演艺部</p><img src="img/yany.jpg"></div>
+           <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">研发部</p><img src="img/yanf.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">人力部</p><img src="img/renl.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">影视部</p><img src="img/yins.jpg"></div>
+           <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">策划部</p><img src="img/ceh.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">采编部</p><img src="img/caip.jpg"></div>
+          <div class="swiper-slide"><p style="position:absolute;color:#fff;padding:40%;">外联部</p><img src="img/wail.jpg"></div>
       </div>
        <!-- 如果需要分页器 -->
       <div class="swiper-pagination"></div>
@@ -37,29 +43,29 @@
         <p class="page__desc">海贝功能</p>
     </div>
     <div style="background-color:snow;" class="weui-grids">
-        <a href="javascript:;" style="border:0px;width:50%;" class="weui-grid">
+        <a href="application_One.html" style="border:0px;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
-                <img  src="img/ui.png" alt="">
+                <img  src="img/grade.png" alt="">
             </div>
-            <p class="weui-grid__label">功能一</p>
+            <p class="weui-grid__label">查询成绩</p>
         </a>
-        <a href="javascript:;" style="border-left:1px solid #ECECEC;width:50%;" class="weui-grid">
+        <a href="application_Two.html" style="border-left:1px solid #ECECEC;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
-                <img src="img/ui.png" alt="">
+                <img src="img/speech.png" alt="">
             </div>
-            <p class="weui-grid__label">功能二</p>
+            <p class="weui-grid__label">讲座查询</p>
         </a>
-        <a href="javascript:;" style="border:1px solid #ECECEC;border-left:0px;width:50%;" class="weui-grid">
+        <a href="application_Three.html" style="border:1px solid #ECECEC;border-left:0px;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
-                <img src="img/ui.png" alt="">
+                <img src="img/phonenumber.png" alt="">
             </div>
-            <p class="weui-grid__label">功能三</p>
+            <p class="weui-grid__label">校内电话</p>
         </a>
-        <a style="border:1px solid #ECECEC;width:50%;" href="javascript:;" class="weui-grid">
+        <a href="application_Four.html" style="border:1px solid #ECECEC;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
-                <img src="img/ui.png" alt="">
+                <img src="img/school.png" alt="">
             </div>
-            <p class="weui-grid__label">功能四</p>
+            <p class="weui-grid__label">校园3D图</p>
         </a>
         
     </div>
