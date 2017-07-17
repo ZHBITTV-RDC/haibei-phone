@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>成绩查询</title>
+	<title>绑定教务</title>
 </head>
 <style type="text/css">
-		*{
+	*{
 		margin: 0px;
 		padding: 0px;
 		width: 100%;
@@ -30,7 +30,7 @@ form{
 	width: 80%;
 	margin-top: 10%;
 }
-select,input{
+input{
 	width: 100%;
 	height: 35px;
 	border-radius: 5px;
@@ -39,7 +39,7 @@ select,input{
 	margin-top:15px;
 	
 }
-select{
+.in{
 	background-color:#90A2B2;
 }
 footer{
@@ -51,7 +51,6 @@ footer{
 }
 </style>
 <body style="background:-webkit-linear-gradient(top,#014E9E,#01448B,gray);">
-	<!-- 先判断是否绑定教务系统，如何没有绑定则跳转绑定 -->
 	<div class="title">
 		<p><span style="font-size:24px;">WELCOME TO</span>
 			<br>
@@ -59,15 +58,9 @@ footer{
 		</p>
 	</div>
 	<form action="" method="POST">
-		<select id="select">
-			<option value="">成绩</option>
-			<option value="">考试时间</option>
-		</select>
-		<select id="selectTime">
-			<option value="">2017年第一学期</option>
-			<option value="">2016年第一学期</option>
-		</select>
-		<input type="submit" value="查询">
+		<input class="in" type="text" name="stuNumber" placeholder="学号">
+		<input class="in" type="password" name="psd" placeholder="教务密码">
+		<input type="submit" value="绑定">
 	</form>
 
 	<footer>
