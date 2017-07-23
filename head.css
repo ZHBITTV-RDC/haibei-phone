@@ -1,0 +1,85 @@
+*{
+  /*width: 100%;*/
+  margin: 0px;
+  padding: 0px;
+  font-family: STKaiti;
+  font-size: 65%;
+}
+body{
+  width: 100%;
+  height: 100%;
+  /*background-color: black;*/
+   margin: 0px;
+  padding: 0px;
+}
+.page__bd{
+  background-color: #0DB2F7;
+  margin-top: -1.4rem;
+}
+.weui-cells__title{
+  height: 3rem;
+  color: snow;
+  font-size: 1.8rem;
+}
+    .loading{
+        width:100%;
+        height: 15rem;
+        margin: auto;
+        padding-left: 45%;
+    }
+    .l{
+        width: 1%;
+        height: 0.8rem;
+        background-color: green;
+        float: left;
+        margin-right: 0.5rem;
+        margin-top: 0.3rem;
+        
+    }
+    #l1{
+        animation:change 0.8s linear infinite alternate;
+    }
+    #l2{
+        animation:change 0.8s linear 0.1s infinite alternate;
+    }
+    #l3{
+        animation:change 0.8s linear 0.2s infinite alternate;
+    }
+    #l4{
+        animation:change 0.8s linear 0.3s infinite alternate;
+    }
+    @keyframes change{
+        0%,100%{
+            width: 1%;
+            height: 0.8rem;
+        }
+        50%{
+            width: 1%;
+            height: 1.2rem;
+        }
+    }
+     .swiper-container {
+    width: 100%;
+    height: 18rem;
+    margin-top: -0.6rem;
+}  
+.swiper-slide>img{
+  width: 100%;
+}
+.swiper-button-prev:hover,.swiper-button-next:hover{
+  background-color: gray;
+  /*opacity: 0.5;*/
+}
+.page__desc{
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  color: gray;
+  opacity: 0.6;
+}
+.swiper-slide p{
+  font-size: 1.6rem;
+  margin-top:13rem;
+  margin-left: 43%;
+}
