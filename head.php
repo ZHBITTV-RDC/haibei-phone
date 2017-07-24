@@ -12,14 +12,24 @@
 <link rel="stylesheet" type="text/css" href="css/weui.min.css">
 <link rel="stylesheet" type="text/css" href="css/weui.css">
 <link rel="stylesheet" type="text/css" href="css/head.css">
-</head>  
+</head>
+<style type="text/css">
+    .page__bd{
+        box-shadow: 0px 0px 7px 0px;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+    }
+    .ri{
+        padding-top: 8px;
+    }
+</style>  
 <body>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/swiper.jquery.min.js"></script>
      <!-- 返回栏 -->
-   <div class="page__bd">
-        <div class="weui-cells__title"><返回</div>
-       
+   <div class="page__bd" >
+        <div class="weui-cells__title ri"><返回</div>
     </div>
      <!-- 轮播效果各部门介绍 -->
      <div class="swiper-container">
