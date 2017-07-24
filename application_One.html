@@ -1,59 +1,68 @@
+
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>成绩查询</title>
 </head>
 <style type="text/css">
 		*{
-		margin: 0px;
-		padding: 0px;
-		width: 100%;
-		/*height: 100%;*/
+		margin: 0rem;
+		font-family: STKaiti;
+	        font-size: 100%;
+		
+		
+	}
+	html{
+		height: 100%;
 	}
 	body{
 		width: 100%;
-		height: 450px;
+		height: 100%;
+		background-image: -webkit-linear-gradient(top,#0d47a1 70%,gray 100%);
 	}
 .title{
-	width: 60%;
+	width: 100%;
 	text-align: center;
 	color: #E5E9F4;
-	margin:auto;
-	margin-top:40%;
-	font:30px/1.5;
+	/*margin:auto;*/
+	font:3rem/1.5;
+	position: absolute;top: 20%;
 }
 form{
-	margin:auto;
+	/*margin:auto;*/
 	width: 80%;
-	margin-top: 10%;
+	position: absolute;top: 30%;
+	margin-left: 10%;
 }
 select,input{
 	width: 100%;
-	height: 35px;
-	border-radius: 5px;
-	border: 0px;
-	padding-left: 4px;
-	margin-top:15px;
+	height: 3.5rem;
+	border-radius: 0.5rem;
+	border: 0rem;
+	padding-left: 0.4rem;
+	margin-top:1.5rem;
 	
 }
 select{
 	background-color:#90A2B2;
 }
 footer{
-	width: 80%;
+	width: 100%;
 	margin:auto;
 	color:#033467;
-	margin-top: 34%;
+	/*margin-top:30%;*/
 	text-align: center;
+	position: absolute;
+	bottom: 1rem;
 }
 </style>
-<body style="background:-webkit-linear-gradient(top,#014E9E,#01448B,gray);">
+<body>
 	<!-- 先判断是否绑定教务系统，如何没有绑定则跳转绑定 -->
 	<div class="title">
-		<p><span style="font-size:24px;">WELCOME TO</span>
+		<p><span style="font-size:1.8rem;">WELCOME TO</span>
 			<br>
 		海贝TV 
 		</p>
