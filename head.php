@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/weui.min.css">
 <link rel="stylesheet" type="text/css" href="css/weui.css">
 <link rel="stylesheet" type="text/css" href="css/head.css">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 </head>
 <style type="text/css">
     .page__bd{
@@ -20,16 +21,37 @@
         z-index: 999;
         width: 100%;
     }
+    .pi{
+        opacity: 0.9;
+    }
     .ri{
         padding-top: 8px;
+        margin-left: -6px;
+    }
+    nav{
+        right: 10px;
+        bottom: 10px;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #0DB2F7;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        display: none;
     }
 </style>  
 <body>
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/swiper.jquery.min.js"></script>
+<script src="./js/jquery-1.10.2.min.js"></script>
+<script src="./js/swiper.jquery.min.js"></script>
+<script src="./js/head.js"></script>
      <!-- 返回栏 -->
    <div class="page__bd" >
-        <div class="weui-cells__title ri"><返回</div>
+        <div class="weui-cells__title ri">
+            <span style="margin-top:3px;" class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>返回
+            
+        </div>
     </div>
      <!-- 轮播效果各部门介绍 -->
      <div class="swiper-container">
@@ -193,6 +215,31 @@
 </div>
 </div>
 <!-- 复制代码模块,直到有滚动条出现为止,为了达到测试目的 -->  
+
+<!-- 返回顶部 -->
+<nav>
+    <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
+</nav>
+<!-- 返回顶部end -->
 </div>  
 </body>  
 </html>  
+<script type="text/javascript">
+window.onscroll = function(){
+   var t = document.documentElement.scrollTop||document.body.scrollTop;
+    if(t >= 100){
+        $('nav').fadeIn();
+        // alert($(window).scrollTop());
+        $('.page__bd').addClass('pi');
+    }else{
+        $('nav').fadeOut();
+         $('.page__bd').removeClass('pi');
+    }
+};
+
+ $('nav').click(function(){
+       $('body,html').animate({'scrollTop':0},500);     
+});
+    
+
+</script>

@@ -1,4 +1,6 @@
  
+
+
 window.onload = function(){
     var mySwiper = new Swiper ('.swiper-container', {
     direction: 'horizontal',
@@ -14,7 +16,6 @@ window.onload = function(){
 
    la();
 }
-
 function la(){
     //自定义指针，指向加载条数
     var next = 0;
@@ -79,5 +80,5 @@ if( $(window).scrollTop() == $(document).height() - $(window).height() ) {
     last +=2;  
 }  
 });  
+ 
 }
-
