@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>海贝TV</title>
+	<link rel="stylesheet" type="text/css" href="css/weui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/application_Three.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<style type="text/css">
+	.xc{
+		width: 100%;
+		height: 80px;
+	}
+	.img img{
+		width: 95%;
+		height: 80px;
+		position: absolute;
+	}
+	.top{
+		width: 5%;
+		height: 80px;
+		background-color: #cdcdcd;
+		opacity: 0.3;
+		float: right;
+	}
+	.top span{
+		line-height: 80px;
+		text-align: center;
+		font-size: 15px;
+		color: #000;
+	}
+</style>
+<body>
+	  <div class="page__bd" >
+        <div class="weui-cells__title ri">海贝栏目</div>
+    </div> 
+    <br><br>
+    <!-- 介绍 -->
+    <h4 style="margin-left:10px;">北理珠2017招生宣传片</h4>
+    <!-- 这里的视频需要兼容格式 -->
+    <video width="320px" height="240px" controls="controls">
+    	<source src="./video/hb.MP4" type="video/mp4"></source>
+    	你的浏览器不支持
+    </video>
+    <br><br>
+    <!-- 此处为宣传条 -->
+	<div class="xc">
+		<div class="img">
+			<img src="img/xuanc.jpg">
+		</div>
+		<div class="top">
+			<span class="glyphicon glyphicon-remove s1" aria-hidden="true"></span>
+		</div>
+	</div>
+    <!-- 宣传end -->
+    <br><br>
+	
+   <footer style="bottom:0px;left:0px;position:absolute;">
+   	<hr>
+   		技术支持：海贝TV研发部
+   	</footer>
+</body>
+<script src="./js/jquery-1.10.2.min.js"></script>
+</html>
+<script type="text/javascript">
+	$(function(){
+
+    $('.top').click(function(){
+    	// alert("test");
+        $(".img").slideToggle();
+        
+    })
+})
+</script>
