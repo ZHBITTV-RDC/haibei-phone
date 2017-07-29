@@ -14,3 +14,29 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/head', [
+		'uses'=>'NewteamController@head',
+		'as'=>'head'
+	]);
+
+Route::any('/application_One', [
+		'uses'=>'NewteamController@application_One',
+		'as'=>'application_One'
+	]);
+
+Route::any('/application_Two', [
+		'uses'=>'NewteamController@application_Two',
+		'as'=>'application_Two'
+	]);
+
+Route::any('/application_Three', [
+		'uses'=>'NewteamController@application_Three',
+		'as'=>'application_Three'
+	]);
+
+Route::any('/application_Four', [
+		'uses'=>'NewteamController@application_Four',
+		'as'=>'application_Four'
+	]);
+
