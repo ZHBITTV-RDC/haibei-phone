@@ -10,7 +10,7 @@
 <body style="background:-webkit-linear-gradient(top,#014E9E,#01448B,gray);">
 	<!-- 先判断是否绑定教务系统，如何没有绑定则跳转绑定 -->
 	<div class="title">
-		<p><span style="font-size:24px;">HELLO xxx童鞋</span>
+		<p><span style="font-size:24px;">{{$user}}</span>
 		</p>
 	</div>
 	<form action="" method="POST">

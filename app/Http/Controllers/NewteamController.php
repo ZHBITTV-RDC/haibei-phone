@@ -22,7 +22,15 @@ class NewteamController extends Controller
 
     public function application_Two(){
 
-    	return view('newteam.application_Two');
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        $user =$user->getId();
+
+        
+
+    	return view('newteam.application_Two',[
+
+                'user'=>$user,
+            ]);
 
     }
 

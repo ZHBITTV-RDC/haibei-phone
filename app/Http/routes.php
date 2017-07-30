@@ -25,10 +25,7 @@ Route::any('/application_One', [
 		'as'=>'application_One'
 	]);
 
-Route::any('/application_Two', [
-		'uses'=>'NewteamController@application_Two',
-		'as'=>'application_Two'
-	]);
+
 
 Route::any('/application_Three', [
 		'uses'=>'NewteamController@application_Three',
@@ -40,3 +37,13 @@ Route::any('/application_Four', [
 		'as'=>'application_Four'
 	]);
 
+
+
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+
+	Route::any('/application_Two', [
+		'uses'=>'NewteamController@application_Two',
+		'as'=>'application_Two'
+	]);
+
+});
