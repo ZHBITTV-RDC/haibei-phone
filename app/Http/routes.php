@@ -39,7 +39,12 @@ Route::any('/application_Four', [
 
 
 
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_base']], function () {
+
+	Route::any('/linkSchool', [
+		'uses'=>'NewteamController@linkSchool',
+		'as'=>'linkSchool'
+	]);
 
 	Route::any('/application_Two', [
 		'uses'=>'NewteamController@application_Two',
