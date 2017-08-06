@@ -8,11 +8,10 @@
 <title>海贝TV</title>  
 <script src="js/jquery.min.js"></script>
 <script src="js/head.js"></script>
-<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="css/weui.min.css">
-<link rel="stylesheet" type="text/css" href="css/weui.css">
-<link rel="stylesheet" type="text/css" href="css/head.css">
-<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/swiper.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/weui.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/head.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap.min.css') }}">
 </head>
 <style type="text/css">
     .page__bd{
@@ -43,9 +42,9 @@
     }
 </style>  
 <body>
-<script src="./js/jquery-1.10.2.min.js"></script>
-<script src="./js/swiper.jquery.min.js"></script>
-<script src="./js/head.js"></script>
+<script src="{{ URL::asset('js/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ URL::asset('js/swiper.jquery.min.js') }}"></script>
+<script src="{{ URL::asset('js/head.js') }}"></script>
      <!-- 返回栏 -->
    <div class="page__bd" >
         <div class="weui-cells__title ri">
@@ -75,25 +74,25 @@
         <p class="page__desc">海贝功能</p>
     </div>
     <div style="background-color:snow;" class="weui-grids">
-        <a href="application_One.html" style="border:0px;width:50%;" class="weui-grid">
+        <a href="{{route('application_One')}}" style="border:0px;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
                 <img  src="img/grade.png" alt="">
             </div>
             <p class="weui-grid__label">查询成绩</p>
         </a>
-        <a href="application_Two.html" style="border-left:1px solid #ECECEC;width:50%;" class="weui-grid">
+        <a href="{{route('application_Two')}}" style="border-left:1px solid #ECECEC;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
                 <img src="img/speech.png" alt="">
             </div>
             <p class="weui-grid__label">讲座查询</p>
         </a>
-        <a href="application_Three.html" style="border:1px solid #ECECEC;border-left:0px;width:50%;" class="weui-grid">
+        <a href="{{route('application_Three')}}" style="border:1px solid #ECECEC;border-left:0px;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
                 <img src="img/phonenumber.png" alt="">
             </div>
             <p class="weui-grid__label">校内电话</p>
         </a>
-        <a href="application_Four.html" style="border:1px solid #ECECEC;width:50%;" class="weui-grid">
+        <a href="{{route('application_Four')}}" style="border:1px solid #ECECEC;width:50%;" class="weui-grid">
             <div class="weui-grid__icon">
                 <img src="img/school.png" alt="">
             </div>
@@ -236,10 +235,8 @@ window.onscroll = function(){
          $('.page__bd').removeClass('pi');
     }
 };
-
  $('nav').click(function(){
        $('body,html').animate({'scrollTop':0},500);     
 });
     
-
 </script>
