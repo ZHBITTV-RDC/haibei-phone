@@ -13,8 +13,9 @@
 		<p><span style="font-size:24px;">{{$user}}</span>
 		</p>
 	</div>
-	<form action="" method="POST">
+	<form action="{{route('lecture')}}" method="POST">
 		<!-- 隐藏菜单 -->
+		{{csrf_field()}}
 		<!-- 对应学生学号 -->
 		<input type="text" name="stuNumber" hidden value="">
 		<!-- 对应学生密码 -->
@@ -23,6 +24,9 @@
 	</form>
 
 	<footer>
+		@if(!empty(session('workout')))
+		{{session('workout')}}
+		@endif
 		Copy@海贝TV研发部&nbsp;&nbsp;2017
 	</footer>
 </body>

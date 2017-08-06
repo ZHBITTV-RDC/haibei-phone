@@ -57,9 +57,10 @@ footer{
 		海贝TV
 		</p>
 	</div>
-	<form action="" method="POST">
-		<input class="in" type="text" name="stuNumber" placeholder="学号">
-		<input class="in" type="password" name="psd" placeholder="教务密码">
+	<form action="{{route('linkId')}}" method="POST">
+		 {{csrf_field()}}
+		<input class="in" type="text" name="jwid" placeholder="学号">
+		<input class="in" type="password" name="jwpwd" placeholder="教务密码">
 		<input type="submit" value="绑定">
 	</form>
 
