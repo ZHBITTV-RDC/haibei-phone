@@ -60,5 +60,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_base']], function () 
 		'uses'=>'NewteamController@lecture',
 		'as'=>'lecture'
 	]);	
+
+	Route::any('getGrade', [
+		'uses'=>'NewteamController@getGrade',
+		'as'=>'getGrade'
+	]);
 });
 

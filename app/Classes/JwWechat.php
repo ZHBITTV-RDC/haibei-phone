@@ -21,7 +21,8 @@ class JwWechat
 
     function __construct(){
         $this->cookie_file = tempnam('./temp', 'cookie');
-        $this->jwurl = 'http://e.zhbit.com/jsxsd/';
+        $this->jwurl = Config::get('constants.JWURL');
+
     }
 
     function __destruct() {
@@ -81,7 +82,7 @@ class JwWechat
         $res = mysql_query("SELECT * FROM bangding WHERE openid = '{$openid}'");
         $userinfo = mysql_fetch_array($res);
         if(empty($userinfo)){
-            $this->text("首次查询要先绑定学号才行喔！\n <a href=\"".JwDir."bangding.php?id={$openid}\">→点击绑定</a>");
+            $this->text("首次查询要先绑定学号才行喔！\n <a href=\"".Config::get('constants.JwDir')."bangding.php?id={$openid}\">→点击绑定</a>");
             exit;
         }
         return $userinfo;
@@ -289,7 +290,7 @@ class JwWechat
             }else{
                 $content = "你【{$w}】的课有：\n----------------\n".$kebiao."\n";
             }
-            $cxurl=JwDir; //教务的文件夹
+            $cxurl=Config::get('constants.JwDir'); //教务的文件夹
             $content = $content."<a href=\"{$cxurl}Schedule.php?id={$this->fromUsername}\" >点我可以查看一周课表</a>";  //追加一周课表链接
             $this->text($content);	//这里修改图文和纯文字。text or news
             return $td;
@@ -349,18 +350,18 @@ class JwWechat
                 $ReContent="要先进入教务系统进行评教才能查询成绩哦！<a href=\"".$this->jwurl."xspj/xspj_find.do\">点击进行评教</a>✧٩(ˊωˋ*)و✧\nBY 海贝TV 研发部 ";
             }else{
                 if (!$ReContent) {
-                    $ReContent="本学期还未出成绩哦(ÒωÓױ)！！！<a href=\"".JwDir."AllGrade.php?id={$this->fromUsername}\">点击查询全部成绩</a>✧٩(ˊωˋ*)و✧";
+                    $ReContent="本学期还未出成绩哦(ÒωÓױ)！！！<a href=\"".Config::get('constants.JwDir')."AllGrade.php?id={$this->fromUsername}\">点击查询全部成绩</a>✧٩(ˊωˋ*)و✧";
                 }else{
                 	preg_match_all("/<div id=\"Top1_divLoginName\".*>(.*)\(.*\)<\/div>/sU",$str,$table);
-                    print_r($table);
-                    $name=strip_tags($table[1][0]);
-                    $temp="{$name}的成绩"."\n-----------------\n";
-                    $ReContent.="<a href=\"".JwDir."AllGrade.php?id={$this->fromUsername}&name={$name}\">点击查询全部成绩</a>"."\nBY 海贝TV 研发部";
-                    $temp.=$ReContent;
-                    $ReContent=$temp;
+                    // print_r($table);
+                    // $name=strip_tags($table[1][0]);
+                    // $temp="{$name}的成绩"."\n-----------------\n";
+                    // $ReContent.="<a href=\"".Config::get('constants.JwDir')."AllGrade.php?id={$this->fromUsername}&name={$name}\">点击查询全部成绩</a>"."\nBY 海贝TV 研发部";
+                    // $temp.=$ReContent;
+                    // $ReContent=$temp;
                 }
             }
-            $this->text($ReContent);          
+            return $ReContent;          
         }else{
             $this->notice();
             return null;
@@ -451,11 +452,14 @@ class JwWechat
         preg_match_all("/<tr>.*<\/tr>/sU",$str,$table);
         array_shift($table[0]);
         array_shift($table[0]);
+        $GradeInfo=array();
+        $i=0;
         foreach ($table as $key => $value) {
             foreach ($value as $key2 => $value2) {
                 preg_match_all("/<td.*>.*<\/td>/",$value2,$show);
                 if(strip_tags($show[0][3])){
-                $GradeInfo.=strip_tags($show[0][3])."\n学分：".strip_tags($show[0][5])."\n成绩：".strip_tags($show[0][4])."\n-----------------\n";
+                $GradeInfo[$i]=strip_tags($show[0][3])."\n学分：".strip_tags($show[0][5])."\n成绩：".strip_tags($show[0][4]);
+                $i++;
                     if(strip_tags($show[0][4])=='请评教'){
                         return '请评教';
                     }
@@ -603,7 +607,7 @@ class JwWechat
         if(!empty($row)){
             $this->text("你的微信已经绑定了学号{$jwid}\n\n若无法查询或修改密码后需重新绑定，请回复：解绑");
         }else{
-            $this->text("首次查询要先绑定学号才行喔！\n <a href=\"".JwDir."bangding.php?id={$openid}\">→点击绑定</a>");
+            $this->text("首次查询要先绑定学号才行喔！\n <a href=\"".Config::get('constants.JwDir')."bangding.php?id={$openid}\">→点击绑定</a>");
         }
     }
 

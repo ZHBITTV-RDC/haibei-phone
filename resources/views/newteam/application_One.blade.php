@@ -58,7 +58,8 @@ footer{
 		海贝TV 
 		</p>
 	</div>
-	<form action="" method="POST">
+	<form action="{{route('getGrade')}}" method="POST">
+		{{csrf_field()}}
 		<select id="select">
 			<option value="">成绩</option>
 			<option value="">考试时间</option>

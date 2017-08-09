@@ -70,6 +70,34 @@ class NewteamController extends Controller
     	return view('newteam.application_One');
     }
 
+    public function getGrade(){
+
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        $openid=$user->getId();
+
+        $JwWechat=new JwWechat();
+        
+
+        $userMessage=web_bangding::where('opid','=',$openid)->get()->first();
+
+        if($userMessage){
+
+            $school_id=$userMessage->school_id;
+            $school_pass=$userMessage->school_pass;
+            $getGrade=$JwWechat->getGrade($school_id,$school_pass);
+
+            
+           var_dump($getGrade);
+
+           
+            
+
+        }else{
+            return back()->with('workout','请进行绑定');
+        }
+
+    }
+
     public function application_Two(){
 
 
