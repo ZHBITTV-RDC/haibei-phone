@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8"> 
+	 <meta http-equiv="refresh" content="5;url=">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>绑定教务</title>
@@ -57,12 +58,17 @@ footer{
 		海贝TV
 		</p>
 	</div>
+	<!-- 如果没绑定显示 -->
 	<form action="" method="POST">
 		<input class="in" type="text" name="stuNumber" placeholder="学号">
 		<input class="in" type="password" name="psd" placeholder="教务密码">
 		<input type="submit" value="绑定">
 	</form>
-
+	<!-- 如果以绑定 -->
+	<form action="" method="POST">
+		<input class="in" type="text" name="stuNumber" value="学号:16000000000000">
+		<input type="submit" value="解绑">
+	</form>
 	<footer>
 		Copy@海贝TV研发部&nbsp;&nbsp;2017
 	</footer>
