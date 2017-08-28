@@ -11,6 +11,8 @@ use App\web_bangding;
 use App\Classes\ClassA;
 use App\Classes\JwWechat;
 use Redirect;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session; 
 
 class NewteamController extends Controller
 {
@@ -65,9 +67,128 @@ class NewteamController extends Controller
 
     }
 
-    public function application_One(){
+    public function levelE(Request $request){
 
-    	return view('newteam.application_One');
+
+        if($request->isMethod('post')){
+                 
+            $name=$request->input('name');
+            $id=$request->input('id');
+            $select=$request->input('select');
+
+
+            $ks_data= array(
+            "ks_xm"=> $name,
+            "ks_sfz"=> $id,
+            "jb"=> $select
+            );
+
+            $postdata = array(
+            "action"=> "",
+            "params"=> json_encode($ks_data)
+            );
+             
+
+        $url='http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify';
+
+       //初始化
+        $curl = curl_init();
+        //设置抓取的url
+        curl_setopt($curl, CURLOPT_URL, $url);
+        //设置头文件的信息作为数据流输出
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        //设置获取的信息以文件流的形式返回，而不是直接输出。
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        //设置post方式提交
+        curl_setopt($curl, CURLOPT_POST, 1);
+        //设置post数据
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
+        curl_setopt($curl,CURLOPT_REFERER,"http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify");
+        //执行命令
+        $data = curl_exec($curl);
+        //关闭URL请求
+        curl_close($curl);
+        //显示获得的数据
+
+        $obj=json_decode($data);
+   
+        //设置空数组接收对象
+        $result=array();
+        $i=0;
+        foreach ($obj as $key => $value) {
+            $result[$i]=$value;
+             $i++;
+        }
+
+
+            return view('newteam.workout',
+                [   
+                    'name'=>$name,
+                    'zkz'=>$result[0],
+
+                ]);
+           
+        }else{
+            return view('newteam.cx');
+        }
+
+
+
+
+   
+       //  $url='http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify';
+
+       // //初始化
+       //  $curl = curl_init();
+       //  //设置抓取的url
+       //  curl_setopt($curl, CURLOPT_URL, $url);
+       //  //设置头文件的信息作为数据流输出
+       //  curl_setopt($curl, CURLOPT_HEADER, 0);
+       //  //设置获取的信息以文件流的形式返回，而不是直接输出。
+       //  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+       //  //设置post方式提交
+       //  curl_setopt($curl, CURLOPT_POST, 1);
+       //  //设置post数据
+       //  curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
+       //  curl_setopt($curl,CURLOPT_REFERER,"http://app.cet.edu.cn:7066/baas/app/setuser.do?method=UserVerify");
+       //  //执行命令
+       //  $data = curl_exec($curl);
+       //  //关闭URL请求
+       //  curl_close($curl);
+       //  //显示获得的数据
+       //  // json_decode($data);
+       //  $obj=json_decode($data);
+       //  // var_dump($obj);
+       //  // // echo $obj->$ks_bh;
+       //  // // //设置空数组接收对象
+       //  // // $result=array();
+       //  // //  $i=0;
+
+       //  foreach ($obj as $key => $value) {
+       //      $result[$i]=$value;
+       //       $i++;
+       //  }
+
+        
+        
+    }
+
+
+
+    public function application_One(Request $request){
+        $select=$request->input('select');
+        if($select!=null){
+            if ($select=='getGrade') {
+                return Redirect::route('getGrade');
+            }
+            else{
+                echo "getGradeTime";
+            }
+        }else{
+            return view('newteam.application_One');
+        }
+
+    	
     }
 
     public function getGrade(){
@@ -84,6 +205,8 @@ class NewteamController extends Controller
 
             $school_id=$userMessage->school_id;
             $school_pass=$userMessage->school_pass;
+            echo $school_id;
+            echo $school_pass;
             $getGrade=$JwWechat->getGrade($school_id,$school_pass);
 
             

@@ -179,11 +179,17 @@ class JwWechat
 
     private function Login($jwid,$jwpwd)
     {
+
+         $headerIp = array(
+            'CLIENT-IP:88.88.88.88',
+            'X-FORWARDED-FOR:88.88.88.88',
+        );
         $jwurl=$this->jwurl;
         $encoded = $this->encodeInp($jwid).'%%%'.$this->encodeInp($jwpwd);
         $cookie_file = $this->cookie_file;
 
         $ch=curl_init($jwurl);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file);
@@ -197,8 +203,13 @@ class JwWechat
             'encoded'=>$encoded
         );
 
+
+       
+
+
         $login=http_build_query($data);
         $ch=curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
         curl_setopt($ch, CURLOPT_URL,"{$jwurl}xk/LoginToXk");
         curl_setopt($ch, CURLOPT_HEADER, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -216,6 +227,7 @@ class JwWechat
             return false;
         }else{
             $ch=curl_init("{$jwurl}framework/xsMain.jsp");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch,CURLOPT_REFERER,"{$jwurl}framework/xsMain.jsp");
             curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file);

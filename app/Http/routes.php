@@ -20,6 +20,18 @@ Route::get('/head', [
 		'as'=>'head'
 	]);
 
+
+Route::any('/levelE', [
+		'uses'=>'NewteamController@levelE',
+		'as'=>'levelE'
+	]);
+
+Route::any('/wechat', [
+	'uses'=>'WechatController@serve',
+	'as'=>'wechat',
+	]);
+
+
 Route::any('/application_One', [
 		'uses'=>'NewteamController@application_One',
 		'as'=>'application_One'
@@ -65,5 +77,12 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_base']], function () 
 		'uses'=>'NewteamController@getGrade',
 		'as'=>'getGrade'
 	]);
+
+	Route::any('/levelE', [
+		'uses'=>'NewteamController@levelE',
+		'as'=>'levelE'
+	]);
 });
+
+
 
